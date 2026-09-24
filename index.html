@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jahidul Islam Shanto | Portfolio</title>
+<meta name="description" content="B.Sc Eng CSE, Uttara University. Entry-Level HR Officer aspirant with RMG factory experience." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b1020;
+    --card:rgba(255,255,255,.05);
+    --border:rgba(255,255,255,.12);
+    --text:#eaf0ff;
+    --muted:#9aa6c7;
+    --accent:#5b8cff;
+    --accent2:#22d3ee;
+    --grad:linear-gradient(135deg,#5b8cff,#22d3ee);
+    --radius:18px;
+  }
+  body.light{
+    --bg:#f5f7ff;
+    --card:rgba(0,0,0,.03);
+    --border:rgba(0,0,0,.1);
+    --text:#0b1020;
+    --muted:#5a6480;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.7;
+    overflow-x:hidden;
+    transition:background .4s,color .4s;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;z-index:-2;
+    background:
+      radial-gradient(600px 400px at 15% 10%,rgba(91,140,255,.22),transparent 60%),
+      radial-gradient(700px 500px at 85% 20%,rgba(34,211,238,.16),transparent 60%),
+      radial-gradient(600px 600px at 50% 100%,rgba(139,92,246,.15),transparent 60%);
+  }
+  body.light::before{
+    background:
+      radial-gradient(600px 400px at 15% 10%,rgba(91,140,255,.15),transparent 60%),
+      radial-gradient(700px 500px at 85% 20%,rgba(34,211,238,.12),transparent 60%);
+  }
+  body::after{
+    content:"";position:fixed;inset:0;z-index:-1;opacity:.4;
+    background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);
+    background-size:32px 32px;
+  }
+  .container{width:min(1120px,92%);margin:auto}
+  section{padding:90px 0}
+
+  /* NAVBAR */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    backdrop-filter:blur(14px);
+    background:rgba(11,16,32,.72);
+    border-bottom:1px solid transparent;
+    transition:.3s;
+  }
+  body.light nav{background:rgba(245,247,255,.85)}
+  nav.scrolled{border-bottom-color:var(--border)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 0;gap:14px}
+  .logo{font-family:'Space Grotesk';font-weight:700;font-size:1.15rem;letter-spacing:.3px;white-space:nowrap}
+  .logo span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .nav-links{display:flex;gap:30px;list-style:none}
+  .nav-links a{color:var(--muted);text-decoration:none;font-size:.92rem;font-weight:500;transition:.25s;position:relative}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--grad);transition:.3s}
+  .nav-links a:hover{color:var(--text)}
+  .nav-links a:hover::after{width:100%}
+  .nav-right{display:flex;align-items:center;gap:10px}
+  .theme-btn{
+    background:rgba(255,255,255,.08);border:1px solid var(--border);
+    color:var(--text);width:42px;height:42px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:1.1rem;
+    cursor:pointer;transition:.3s;
+  }
+  body.light .theme-btn{background:rgba(0,0,0,.05)}
+  .theme-btn:hover{background:rgba(91,140,255,.2);border-color:rgba(91,140,255,.5);transform:scale(1.1)}
+  .menu-btn{display:none;background:none;border:1px solid var(--border);color:var(--text);border-radius:10px;padding:8px 12px;cursor:pointer;font-size:1.1rem}
+
+  /* HERO */
+  .hero{min-height:100vh;display:flex;align-items:center;padding-top:80px}
+  .hero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:60px;align-items:center}
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(34,211,238,.1);border:1px solid rgba(34,211,238,.3);
+    color:#7fe9f7;padding:7px 16px;border-radius:100px;font-size:.8rem;font-weight:600;
+    letter-spacing:.5px;margin-bottom:22px;
+  }
+  .badge .dot{width:8px;height:8px;border-radius:50%;background:#22d3ee;box-shadow:0 0 10px #22d3ee;animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+  .hero h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:800;line-height:1.12;letter-spacing:-1px}
+  .hero h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero .subtitle{
+    color:#22d3ee;font-weight:600;font-size:1.05rem;
+    margin-top:12px;letter-spacing:.3px;
+  }
+  .typed-cursor{color:#22d3ee;font-weight:400;animation:blink .7s infinite}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+  .hero p.lead{color:var(--muted);font-size:1.05rem;max-width:560px;margin:22px 0 32px}
+  .cta{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    padding:13px 26px;border-radius:100px;font-weight:600;font-size:.93rem;
+    text-decoration:none;transition:.3s;cursor:pointer;border:none;
+  }
+  .btn-primary{background:var(--grad);color:#05122b;box-shadow:0 10px 30px rgba(91,140,255,.35)}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(91,140,255,.5)}
+  .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
+  .btn-ghost:hover{background:rgba(255,255,255,.06);transform:translateY(-3px)}
+  .btn-download{background:rgba(34,211,238,.12);color:#22d3ee;border:1px solid rgba(34,211,238,.4)}
+  .btn-download:hover{background:rgba(34,211,238,.22);transform:translateY(-3px)}
+  .hero-stats{display:flex;gap:38px;margin-top:46px;flex-wrap:wrap}
+  .stat h3{font-family:'Space Grotesk';font-size:1.7rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stat span{color:var(--muted);font-size:.82rem}
+
+  /* AVATAR */
+  .avatar-wrap{display:flex;justify-content:center;position:relative}
+  .avatar-ring{
+    width:300px;height:300px;border-radius:50%;
+    background:var(--grad);padding:5px;
+    box-shadow:0 0 80px rgba(91,140,255,.45);
+    animation:float 6s ease-in-out infinite;
+  }
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+  .avatar{
+    width:100%;height:100%;border-radius:50%;
+    overflow:hidden;
+    background:linear-gradient(135deg,#141b38,#0b1020);
+    display:flex;align-items:center;justify-content:center;
+  }
+  body.light .avatar{background:linear-gradient(135deg,#dce4ff,#eef3ff)}
+  .avatar img{
+    width:100%;height:100%;
+    object-fit:cover;
+    object-position:center top;
+    display:block;
+    border-radius:50%;
+  }
+  .avatar .initials{
+    font-family:'Space Grotesk';
+    font-size:5.5rem;
+    font-weight:700;
+    letter-spacing:-4px;
+    background:var(--grad);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+
+  /* SECTION TITLE */
+  .sec-head{margin-bottom:50px}
+  .sec-head .tag{color:var(--accent2);font-size:.8rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase}
+  .sec-head h2{font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:700;margin-top:8px;letter-spacing:-.5px}
+  .sec-head h2 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* CARDS */
+  .card{
+    background:var(--card);border:1px solid var(--border);
+    border-radius:var(--radius);padding:28px;
+    backdrop-filter:blur(8px);transition:.35s;
+  }
+  .card:hover{transform:translateY(-6px);border-color:rgba(91,140,255,.45);box-shadow:0 20px 45px rgba(0,0,0,.35)}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px}
+  .about-text p{color:var(--muted);margin-bottom:18px}
+  .info-list{display:grid;gap:14px}
+  .info-item{display:flex;gap:12px;align-items:flex-start;font-size:.93rem}
+  .info-item .ic{
+    min-width:38px;height:38px;border-radius:11px;
+    background:rgba(91,140,255,.12);border:1px solid rgba(91,140,255,.25);
+    display:flex;align-items:center;justify-content:center;font-size:1rem;
+  }
+  .info-item b{display:block;font-size:.75rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px}
+  .info-item span{color:var(--text);font-size:.92rem}
+
+  /* SKILLS */
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+  .skill-card h4{font-size:1rem;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+  .skill-card h4 .ic{
+    width:34px;height:34px;border-radius:10px;background:var(--grad);
+    display:flex;align-items:center;justify-content:center;font-size:1rem;color:#05122b;
+  }
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{
+    background:rgba(255,255,255,.06);border:1px solid var(--border);
+    padding:6px 13px;border-radius:100px;font-size:.78rem;color:#c9d4f0;transition:.25s;
+  }
+  body.light .chip{color:#3a4460;background:rgba(0,0,0,.04)}
+  .chip:hover{background:rgba(91,140,255,.2);border-color:rgba(91,140,255,.5);color:#fff}
+
+  /* TIMELINE */
+  .timeline{position:relative;padding-left:36px}
+  .timeline::before{
+    content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;
+    background:linear-gradient(180deg,#5b8cff,#22d3ee,transparent);
+  }
+  .tl-item{position:relative;margin-bottom:38px}
+  .tl-item::before{
+    content:"";position:absolute;left:-33px;top:8px;width:14px;height:14px;border-radius:50%;
+    background:var(--bg);border:3px solid var(--accent);box-shadow:0 0 14px rgba(91,140,255,.7);
+  }
+  .tl-item .role{font-size:1.08rem;font-weight:700}
+  .tl-item .company{color:var(--accent2);font-size:.9rem;font-weight:600;margin-bottom:6px}
+  .tl-item .date{
+    display:inline-block;font-size:.74rem;color:var(--muted);
+    background:rgba(255,255,255,.06);padding:3px 11px;border-radius:100px;margin-bottom:10px;
+  }
+  body.light .tl-item .date{background:rgba(0,0,0,.05)}
+  .tl-item ul{list-style:none;color:var(--muted);font-size:.92rem}
+  .tl-item ul li{position:relative;padding-left:20px;margin-bottom:6px}
+  .tl-item ul li::before{content:"▸";position:absolute;left:0;color:var(--accent)}
+
+  /* EDUCATION */
+  .edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+  .edu-card .degree{font-weight:700;font-size:1.02rem}
+  .edu-card .inst{color:var(--muted);font-size:.88rem;margin:6px 0 14px}
+  .edu-card .result{display:flex;justify-content:space-between;align-items:center;font-size:.85rem;border-top:1px solid var(--border);padding-top:12px}
+  .edu-card .result b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1rem}
+
+  /* PROJECT */
+  .project-card{
+    display:grid;grid-template-columns:1fr 1fr;gap:0;overflow:hidden;padding:0;
+  }
+  .project-visual{
+    background:linear-gradient(135deg,rgba(91,140,255,.18),rgba(34,211,238,.12));
+    display:flex;align-items:center;justify-content:center;font-size:4.5rem;min-height:260px;
+  }
+  .project-body{padding:34px}
+  .project-body h3{font-size:1.25rem;margin-bottom:12px}
+  .project-body p{color:var(--muted);font-size:.93rem;margin-bottom:18px}
+  .project-body ul{list-style:none;margin-bottom:20px}
+  .project-body ul li{position:relative;padding-left:20px;color:var(--muted);font-size:.9rem;margin-bottom:6px}
+  .project-body ul li::before{content:"✓";position:absolute;left:0;color:#22d3ee;font-weight:700}
+
+  /* LEADERSHIP */
+  .lead-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+  .lead-card .top{display:flex;gap:14px;align-items:center;margin-bottom:14px}
+  .lead-card .top .ic{
+    width:48px;height:48px;border-radius:14px;background:var(--grad);
+    display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:#05122b;flex-shrink:0;
+  }
+  .lead-card h4{font-size:1rem}
+  .lead-card .org{color:var(--muted);font-size:.82rem}
+  .lead-card p{color:var(--muted);font-size:.9rem;margin-bottom:12px}
+  .achieve{
+    display:inline-flex;align-items:center;gap:7px;font-size:.8rem;font-weight:600;
+    color:#ffd76a;background:rgba(255,215,106,.1);border:1px solid rgba(255,215,106,.28);
+    padding:5px 12px;border-radius:100px;
+  }
+
+  /* CONTACT */
+  .contact-wrap{
+    background:linear-gradient(135deg,rgba(91,140,255,.14),rgba(34,211,238,.08));
+    border:1px solid var(--border);border-radius:26px;padding:56px 40px;text-align:center;
+  }
+  .contact-wrap h2{font-size:clamp(1.6rem,3.5vw,2.3rem);margin-bottom:14px}
+  .contact-wrap p{color:var(--muted);max-width:520px;margin:0 auto 32px}
+  .contact-cards{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-bottom:34px}
+  .contact-cards a{
+    display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);
+    background:rgba(255,255,255,.05);border:1px solid var(--border);
+    padding:12px 22px;border-radius:100px;font-size:.9rem;transition:.3s;
+  }
+  body.light .contact-cards a{background:rgba(0,0,0,.04)}
+  .contact-cards a:hover{background:rgba(91,140,255,.2);border-color:rgba(91,140,255,.5);transform:translateY(-3px)}
+
+  /* REFERENCE */
+  .ref-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .ref-card h4{font-size:1rem;margin-bottom:4px}
+  .ref-card .pos{color:var(--accent2);font-size:.83rem;font-weight:600;margin-bottom:12px}
+  .ref-card .line{color:var(--muted);font-size:.86rem;display:flex;gap:8px;margin-bottom:5px;word-break:break-word}
+
+  footer{text-align:center;padding:34px 0;border-top:1px solid var(--border);color:var(--muted);font-size:.85rem}
+
+  /* WHATSAPP */
+  .whatsapp-btn{
+    position:fixed;bottom:24px;right:24px;z-index:999;
+    width:58px;height:58px;border-radius:50%;
+    background:linear-gradient(135deg,#25d366,#128c7e);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 10px 30px rgba(37,211,102,.45);
+    text-decoration:none;font-size:1.7rem;
+    transition:.3s;animation:wPulse 2.5s infinite;
+  }
+  .whatsapp-btn:hover{transform:scale(1.1) rotate(5deg)}
+  @keyframes wPulse{
+    0%,100%{box-shadow:0 10px 30px rgba(37,211,102,.45)}
+    50%{box-shadow:0 10px 40px rgba(37,211,102,.75)}
+  }
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.show{opacity:1;transform:none}
+
+  /* RESPONSIVE */
+  @media(max-width:900px){
+    .hero-grid,.about-grid{grid-template-columns:1fr}
+    .avatar-wrap{order:-1}
+    .avatar-ring{width:220px;height:220px}
+    .avatar .initials{font-size:4rem;letter-spacing:-3px}
+    .project-card{grid-template-columns:1fr}
+    .ref-grid{grid-template-columns:1fr}
+    .nav-links{
+      position:fixed;top:64px;right:0;left:0;
+      flex-direction:column;gap:0;
+      background:rgba(11,16,32,.98);border-bottom:1px solid var(--border);
+      padding:0;max-height:0;overflow:hidden;transition:.35s;
+    }
+    body.light .nav-links{background:rgba(245,247,255,.98)}
+    .nav-links.open{max-height:340px;padding:14px 0}
+    .nav-links li{padding:12px 24px}
+    .menu-btn{display:block}
+    section{padding:66px 0}
+    .whatsapp-btn{width:52px;height:52px;font-size:1.5rem;bottom:18px;right:18px}
+  }
+  @media(max-width:480px){
+    .hero-stats{gap:24px}
+    .contact-wrap{padding:40px 22px}
+    .logo{font-size:1rem}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="nav">
+  <div class="container nav-inner">
+    <div class="logo">Jahidul <span>Islam Shanto</span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#project">Project</a></li>
+      <li><a href="#leadership">Leadership</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-btn" id="themeBtn" title="Toggle theme">🌙</button>
+      <button class="menu-btn" id="menuBtn">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="badge"><span class="dot"></span> Open to Entry-Level HR Officer Roles</div>
+      <h1>Hi, I'm <span class="grad" id="typedName"></span><span class="typed-cursor">|</span></h1>
+      <p class="subtitle">B.Sc Eng CSE, Uttara University</p>
+      <p class="lead">
+        A detail-oriented Computer Science graduate with hands-on RMG factory experience.
+        I combine strong data handling, MS Excel expertise, and AI-assisted workflows to
+        streamline HR operations, payroll support, and workforce record management.
+      </p>
+      <div class="cta">
+        <a href="#contact" class="btn btn-primary">📩 Hire Me</a>
+        <a href="#experience" class="btn btn-ghost">View Experience →</a>
+        <a href="https://drive.google.com/file/d/1PkAoWmNuFDXIM9v8Xksz_b9EIhP2_6QV/view?usp=sharing" target="_blank" class="btn btn-download">⬇️ Download CV</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><h3>6+</h3><span>Months Factory Experience</span></div>
+        <div class="stat"><h3>7</h3><span>Years Teaching</span></div>
+        <div class="stat"><h3>3.2</h3><span>B.Sc CSE CGPA</span></div>
+      </div>
+    </div>
+    <div class="avatar-wrap">
+      <div class="avatar-ring">
+        <div class="avatar">
+          <!-- Google Drive ছবি try (থাকলে দেখাবে, না থাকলে JS দেখাবে) -->
+          <img src="https://lh3.googleusercontent.com/d/1YarNAolVTqCFMrqmcu2YrSyXF1Z3DcE8" 
+     alt="Jahidul Islam Shanto"
+     onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'initials\'>JS</span>';" />
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="tag">About Me</div>
+      <h2>Career <span class="grad">Objective</span></h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>I am a Computer Science graduate currently working as a Factory Data Entry Operator at Matrix Sweater Ltd., where I handle yarn & raw material estimation, inventory logs, and production tracking using specialized factory software.</p>
+        <p>My goal is to transition into an <b>Entry-Level HR Officer</b> role where I can apply my technical expertise in HRIS administration, payroll support, attendance tracking, and AI-assisted daily factory operations.</p>
+        <p>I bring a rare blend of <b>technical skill</b> (Excel, SQL, AI tools) and <b>people management</b> (teaching, event direction, team coordination) — making me equally comfortable with spreadsheets and shop floors.</p>
+      </div>
+      <div class="info-list reveal">
+        <div class="info-item card" style="padding:16px"><div class="ic">📍</div><div><b>Location</b><span>Uttor Khailkur, Gazipur City Corporation</span></div></div>
+        <div class="info-item card" style="padding:16px"><div class="ic">🎂</div><div><b>Date of Birth</b><span>12 August 1999</span></div></div>
+        <div class="info-item card" style="padding:16px"><div class="ic">🌐</div><div><b>Languages</b><span>Bengali (Native) · English (Professional)</span></div></div>
+        <div class="info-item card" style="padding:16px"><div class="ic">🇧🇩</div><div><b>Nationality</b><span>Bangladeshi</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="tag">What I Bring</div>
+      <h2>Core Competencies & <span class="grad">Skills</span></h2>
+    </div>
+    <div class="skills-grid">
+      <div class="card skill-card reveal">
+        <h4><span class="ic">💻</span> Tech & Digital Operations</h4>
+        <div class="chips">
+          <span class="chip">MS Excel (Pivot Tables)</span><span class="chip">VLOOKUP / XLOOKUP</span><span class="chip">Data Validation</span><span class="chip">SQL / MySQL</span><span class="chip">Windows OS Admin</span>
+        </div>
+      </div>
+      <div class="card skill-card reveal">
+        <h4><span class="ic">🤖</span> AI & HR Automation</h4>
+        <div class="chips">
+          <span class="chip">ChatGPT</span><span class="chip">Claude</span><span class="chip">HR Document Drafting</span><span class="chip">Policy Summarization</span><span class="chip">Formula Generation</span>
+        </div>
+      </div>
+      <div class="card skill-card reveal">
+        <h4><span class="ic">📊</span> Analytical Problem Solving</h4>
+        <div class="chips">
+          <span class="chip">Data Handling</span><span class="chip">Yarn / BOM Tracking</span><span class="chip">Critical Thinking</span><span class="chip">Workflow Optimization</span>
+        </div>
+      </div>
+      <div class="card skill-card reveal">
+        <h4><span class="ic">🧑‍💼</span> Managerial Capabilities</h4>
+        <div class="chips">
+          <span class="chip">Event Organization</span><span class="chip">Resource Management</span><span class="chip">Team Coordination</span><span class="chip">Logistics Execution</span>
+        </div>
+      </div>
+      <div class="card skill-card reveal">
+        <h4><span class="ic">🗣️</span> Communication & Adaptability</h4>
+        <div class="chips">
+          <span class="chip">Verbal Communication</span><span class="chip">Written Communication</span><span class="chip">Bengali (Native)</span><span class="chip">English (Professional)</span>
+        </div>
+      </div>
+      <div class="card skill-card reveal">
+        <h4><span class="ic">🏭</span> RMG & Factory Ops</h4>
+        <div class="chips">
+          <span class="chip">Attendance Tracking</span><span class="chip">Workforce Records</span><span class="chip">Inventory Logs</span><span class="chip">Production Tracking</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="tag">Career Path</div>
+      <h2>Work <span class="grad">Experience</span></h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="date">Current · 6 Months</div>
+        <div class="role">Data Entry Operator</div>
+        <div class="company">Matrix Sweater Ltd.</div>
+        <ul>
+          <li>Calculated yarn & raw material requirements based on sweater design and size specifications for precise operator allocation.</li>
+          <li>Recorded and maintained daily material distribution, inventory logs, and production tracking using specialized factory software.</li>
+          <li>Tracked remaining production targets per size and design to ensure timely workflow and generate accurate progress reports.</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal">
+        <div class="date">6 Months</div>
+        <div class="role">Distributor</div>
+        <div class="company">BKC Sweater Ltd.</div>
+        <ul>
+          <li>Coordinated product distribution, inventory tracking, and factory dispatch activities.</li>
+          <li>Communicated across departments to ensure smooth day-to-day factory workflow and logistics handling.</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal">
+        <div class="date">2018 – 2025</div>
+        <div class="role">Associate Teacher</div>
+        <div class="company">Jamal Uddin Memorial Academy</div>
+        <ul>
+          <li>Instructor for secondary-level Computer Science and Science subjects.</li>
+          <li>Managed class administration, student performance records, and organized academic activities.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="tag">Academic Background</div>
+      <h2>Education & <span class="grad">Results</span></h2>
+    </div>
+    <div class="edu-grid">
+      <div class="card edu-card reveal">
+        <div class="degree">B.Sc in CSE</div>
+        <div class="inst">Uttara University</div>
+        <div class="result"><span>CGPA</span><b>3.20</b></div>
+        <div class="result" style="border:none;padding-top:6px"><span>Pass Year</span><span>2025</span></div>
+      </div>
+      <div class="card edu-card reveal">
+        <div class="degree">H.S.C — Science</div>
+        <div class="inst">Gazipur Presidency College, Gazipur</div>
+        <div class="result"><span>GPA</span><b>3.00</b></div>
+        <div class="result" style="border:none;padding-top:6px"><span>Pass Year</span><span>2018</span></div>
+      </div>
+      <div class="card edu-card reveal">
+        <div class="degree">S.S.C — Science</div>
+        <div class="inst">Kamarjuri Yousuf Ali High School, Gazipur</div>
+        <div class="result"><span>GPA</span><b>4.11</b></div>
+        <div class="result" style="border:none;padding-top:6px"><span>Pass Year</span><span>2016</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT -->
+<section id="project">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="tag">Academic Work</div>
+      <h2>Undergraduate <span class="grad">Project</span></h2>
+    </div>
+    <div class="card project-card reveal">
+      <div class="project-visual">🛒</div>
+      <div class="project-body">
+        <h3>E-Shop Management System</h3>
+        <p>A complete e-commerce website that allows customers to purchase products online, with a fully functional admin panel for product and order management.</p>
+        <ul>
+          <li>Implemented product search & cart management</li>
+          <li>Built order placement & user features</li>
+          <li>Designed admin panel for products & orders</li>
+        </ul>
+        <div class="chips">
+          <span class="chip">PHP</span><span class="chip">SQL</span><span class="chip">HTML</span><span class="chip">CSS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section id="leadership">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="tag">Beyond Work</div>
+      <h2>Leadership & <span class="grad">Extra-Curricular</span></h2>
+    </div>
+    <div class="lead-grid">
+      <div class="card lead-card reveal">
+        <div class="top">
+          <div class="ic">🏏</div>
+          <div>
+            <h4>Sports Secretary & Event Director</h4>
+            <div class="org">Hamonto Jobo Shongo, Gazipur · 2019–2024</div>
+          </div>
+        </div>
+        <p>Directed logistics and tournament execution; organized annual regional cricket tournaments and managed budget execution.</p>
+        <span class="achieve">🏆 Champion, Hamonto Cricket Tournament 2019</span>
+      </div>
+      <div class="card lead-card reveal">
+        <div class="top">
+          <div class="ic">🏸</div>
+          <div>
+            <h4>Event Organizer & Active Member</h4>
+            <div class="org">Sports & Cultural Club, Uttara University · 2021–2025</div>
+          </div>
+        </div>
+        <p>Led departmental athletic initiatives and spearheaded indoor games for the Department of CSE.</p>
+        <span class="achieve">🏆 Champion, University Badminton Tournament, UU</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-wrap reveal">
+      <h2>Let's Work <span class="grad">Together</span></h2>
+      <p>I'm actively looking for an Entry-Level HR Officer role where I can contribute with data-driven HR operations and AI-assisted workflows. Feel free to reach out!</p>
+      <div class="contact-cards">
+        <a href="mailto:mdjahid.uucse@gmail.com">📧 mdjahid.uucse@gmail.com</a>
+        <a href="tel:01854275083">📞 01854275083</a>
+        <a href="https://wa.me/8801854275083" target="_blank">💬 WhatsApp</a>
+      </div>
+      <a href="mailto:mdjahid.uucse@gmail.com" class="btn btn-primary">📩 Send Me an Email</a>
+    </div>
+  </div>
+</section>
+
+<!-- REFERENCES -->
+<section id="references" style="padding-top:0">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="tag">References</div>
+      <h2>Professional <span class="grad">References</span></h2>
+    </div>
+    <div class="ref-grid">
+      <div class="card ref-card reveal">
+        <h4>Md. Selim</h4>
+        <div class="pos">Assistant Manager, Planning — DBL Group</div>
+        <div class="line">🎓 B.Sc. Eng IPE, KUET</div>
+        <div class="line">📞 01777638457</div>
+        <div class="line">📧 selim.ipe1218@gmail.com</div>
+        <div class="line">📍 Shardhagonj, Kashimpur, Gazipur</div>
+      </div>
+      <div class="card ref-card reveal">
+        <h4>Md. Abdul Motalib Miah</h4>
+        <div class="pos">Principal — Jamal Uddin Memorial Academy</div>
+        <div class="line">📞 01629240209</div>
+        <div class="line">📧 mdabdulmotalib09@gmail.com</div>
+        <div class="line">📍 Gazipur</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © 2025 Jahidul Islam Shanto · Built with ❤️ from Gazipur, Bangladesh
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOATING BUTTON -->
+<a href="https://wa.me/8801854275083?text=Hello%20Jahidul%2C%20I%20visited%20your%20portfolio!" target="_blank" class="whatsapp-btn" title="Chat on WhatsApp">💬</a>
+
+<script>
+  // NAVBAR SCROLL
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+
+  // MOBILE MENU
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  // THEME TOGGLE
+  const themeBtn = document.getElementById('themeBtn');
+  const body = document.body;
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') {
+    body.classList.add('light');
+    themeBtn.textContent = '☀️';
+  }
+  themeBtn.addEventListener('click', () => {
+    body.classList.toggle('light');
+    const isLight = body.classList.contains('light');
+    themeBtn.textContent = isLight ? '☀️' : '🌙';
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  });
+
+  // TYPING ANIMATION
+  const typedName = document.getElementById('typedName');
+  const nameText = "Jahidul Islam Shanto";
+  let i = 0;
+  function type() {
+    if (i < nameText.length) {
+      typedName.textContent += nameText.charAt(i);
+      i++;
+      setTimeout(type, 80);
+    }
+  }
+  setTimeout(type, 500);
+
+  // REVEAL ON SCROLL
+  const reveals = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('show');
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => revealObserver.observe(el));
+</script>
+
+</body>
+  </html>
